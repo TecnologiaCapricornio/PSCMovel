@@ -3,7 +3,7 @@
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="26" />
 	<permission android:name="com.capricornio.PSCMovel.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 	<uses-permission android:name="com.capricornio.PSCMovel.permission.C2D_MESSAGE" />
-	<application android:label="PSC Móvel">
+	<application android:label="PSC Móvel" android:icon="@drawable/logo">
 		<receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
 			<intent-filter>
 				<action android:name="com.google.android.c2dm.intent.RECEIVE" />

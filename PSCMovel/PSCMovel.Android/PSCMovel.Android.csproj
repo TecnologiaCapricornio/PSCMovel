@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.0.4</Version>
+    </PackageReference>
     <PackageReference Include="Com.OneSignal">
       <Version>3.2.1</Version>
     </PackageReference>

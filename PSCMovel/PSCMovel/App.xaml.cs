@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Com.OneSignal;
+using Acr.UserDialogs;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace PSCMovel

@@ -12,7 +12,7 @@ using Android.Content;
 
 namespace PSCMovel.Droid
 {
-    [Activity(Label = "PSCMovel", Icon = "@drawable/logo", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "PSCMovel", Icon = "@drawable/logo_novo", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override async void OnCreate(Bundle savedInstanceState)
@@ -50,22 +50,20 @@ namespace PSCMovel.Droid
                 if (pResult.Ok)
                 {
                     ISharedPreferencesEditor editor = dados.Edit();
-                    editor.PutString("email", pResult.Text);
+                    editor.PutBoolean("email", true);
                     editor.Apply();
 
                     await UserDialogs.Instance.AlertAsync("Obrigado por se inscrever!");
 
-                    OneSignal.Current.SetEmail(pResult.Text);
-                    OneSignal.Current.RegisterForPushNotifications();
                     OneSignal.Current.StartInit("de2f1261-8d66-40d4-a0dd-fe7ec1d0ba87")
                         .EndInit();
+
+                    OneSignal.Current.SendTag( "email", pResult.Text);   
 
                 }
             }
             else
             {
-                OneSignal.Current.SetEmail(dados.GetString("email", null));
-                OneSignal.Current.RegisterForPushNotifications();
                 OneSignal.Current.StartInit("de2f1261-8d66-40d4-a0dd-fe7ec1d0ba87")
                     .EndInit();
             }
